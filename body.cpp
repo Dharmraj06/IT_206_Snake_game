@@ -31,8 +31,7 @@ public:
 int main() {
     int width = 60, height = 30;
     Snake snake(width, height);
-
-    // Call the draw function to display the grid
+        
     snake.draw();
 
     return 0;
