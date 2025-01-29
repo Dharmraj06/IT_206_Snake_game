@@ -20,8 +20,6 @@ public:
     gameover = false;
     x = width/2;
     y = hieght/2;
-    fx = rand() % width;
-    fy = rand() % hieght;
     score = -10;
 
 };
