@@ -3,13 +3,13 @@
 #include<conio.h>
 using namespace std;
 
-const int width = 20;
-const int hieght = 20;
-bool gameover;
-int x,y;
-int fx,fy;
-int score;
-int ntail;
+extern const int width = 20;
+extern const int hieght = 20;
+extern bool gameover;
+extern int x,y;
+extern int fx,fy;
+extern int score;
+extern int ntail;
 enum eDirection {LEFT,RIGHT,UP,DOWN};
 eDirection dir;
 
@@ -28,7 +28,7 @@ public:
 int main(){
 
     /*
-    exdexe
+    
         HELLO WORLD!
 
     */
