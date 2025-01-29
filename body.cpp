@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include <windows.h>
+
 using namespace std;
 int width, height = 30;
 enum eDirecton { STOP = 0, LEFT, RIGHT, UP, DOWN};
