@@ -15,7 +15,7 @@ eDirection dir;
 
 
 class setUp{
-
+public:
     gameover = false;
     x = width/2;
     y = hieght/2;
