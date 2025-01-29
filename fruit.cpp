@@ -2,7 +2,7 @@
 
 using namespace std;
 int score;
-class fruit()
+class fruit
 {
     public:
     int FruitX, FruitY, score=-10;
@@ -25,4 +25,4 @@ class fruit()
 
 
 
-}
+};
