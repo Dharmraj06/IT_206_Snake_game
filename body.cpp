@@ -1,13 +1,15 @@
 #include <bits/stdc++.h>
 #include <windows.h>
 #include <conio.h>
-
 using namespace std;
-int width, height = 30;
+
 enum eDirecton { STOP = 0, LEFT, RIGHT, UP, DOWN};
 eDirecton dir;
 bool gameOver;
 class Snake {
+    private:
+    int width, height;
+    
 public:
     
     Snake(int w, int h) {
