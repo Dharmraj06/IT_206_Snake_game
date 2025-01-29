@@ -7,7 +7,8 @@ extern const int width = 20;
 extern const int hieght = 20;
 extern bool gameover;
 extern int x,y;
-extern int fx,fy;
+extern int FruitX,FruitY;
+extern int fruitX,fruitY;
 extern int score;
 extern int ntail;
 enum eDirection {LEFT,RIGHT,UP,DOWN};
@@ -21,7 +22,7 @@ public:
     y = hieght/2;
     fx = rand() % width;
     fy = rand() % hieght;
-    score = 0;
+    score = -10;
 
 };
 
