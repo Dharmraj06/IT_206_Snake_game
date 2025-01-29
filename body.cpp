@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 int width, height = 30;
+enum eDirecton { STOP = 0, LEFT, RIGHT, UP, DOWN};
+eDirecton dir;
 
 class Snake {
 public:
@@ -26,12 +28,37 @@ public:
             cout << endl;
         }
     }
+
+    void Input()
+{
+    if (_kbhit())
+    {
+        switch (_getch())
+        {
+        case 'a':
+            dir = LEFT;
+            break;
+        case 'd':
+            dir = RIGHT;
+            break;
+        case 'w':
+            dir = UP;
+            break;
+        case 's':
+            dir = DOWN;
+            break;
+        case 'x':
+            gameOver = true;
+            break;
+        }
+    }
+}
 };
 
 int main() {
     int width = 60, height = 30;
     Snake snake(width, height);
-        
+
     snake.draw();
 
     return 0;
