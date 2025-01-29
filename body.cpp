@@ -34,9 +34,9 @@ public:
 
     void Input()
 {
-    if (_kbhit())
+    if (_kbhit()) // takes input from keyboard
     {
-        switch (_getch())
+        switch (_getch()) 
         {
         case 'a':
             dir = LEFT;
@@ -50,19 +50,10 @@ public:
         case 's':
             dir = DOWN;
             break;
-        case 'x':
+        case 'x': //when typed x in keyboard game will be over
             gameOver = true;
             break;
         }
     }
 }
 };
-
-int main() {
-    int width = 60, height = 30;
-    Snake snake(width, height);
-
-    snake.draw();
-
-    return 0;
-}
