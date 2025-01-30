@@ -20,7 +20,7 @@ public:
 
     void draw() {
         // Clear the screen (works on most systems)
-        cout << "\033[2J\033[H";  // Clear screen and reset cursor position
+        //cout << "\033[2J\033[H";  // Clear screen and reset cursor position
 
         // Drawing the snake field
         for (int i = 0; i < height; i++) {
@@ -59,3 +59,10 @@ public:
     }
 }
 };
+
+int main(){
+    Snake game(30,30);
+    game.draw();
+    game.Input();
+    return 0;
+}
