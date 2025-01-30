@@ -36,7 +36,7 @@ void Snake::draw() {
 }
 
 // Method to take input from the user
-void Snake::Input() {
+eDirecton Snake::Input() {
     if (_kbhit()) {
         switch (_getch()) {
             case 'a': dir = LEFT; break;
@@ -46,6 +46,7 @@ void Snake::Input() {
             case 'x': gameOver = true; break;  // Exit game if 'x' is pressed
         }
     }
+    return dir;
 }
 
 // Method to handle game logic

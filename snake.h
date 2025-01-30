@@ -23,7 +23,7 @@ class Snake {
         void draw();
 
         // Method to handle input from the user
-        void Input();
+        eDirecton Input();
 
         // Method to handle game logic
         void Logic();
