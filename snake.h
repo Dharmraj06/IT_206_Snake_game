@@ -17,7 +17,7 @@ class Snake {
 
     public:
         // Constructor
-        Snake(int w, int h);
+        //Snake(int w, int h);
 
         // Method to draw the game board
         void draw();
