@@ -1,65 +1,41 @@
 #ifndef FRUIT_H
 #define FRUIT_H
 
-#include <iostream>
-#include <conio.h>
-#include <windows.h>
-using namespace std;
+#include <cstdlib>  // For random number generation
+#include <iostream> // For printing the matrix (optional)
 
-class Fruit {        
+class Fruit {
+private:
+    int FruitX, FruitY, fruitX, fruitY;  // Coordinates for two types of fruits
+    char matrix[20][20];  // Game board (20x20 matrix)
+    int width = 20;  // Width of the board
+    int height = 20; // Height of the board
+    int score = 0;   // Player's score
 
-    public:
-        int FruitX, FruitY, fruitX, fruitY, score=-10;
-        //allocating coordinates for Fruit(F)//
-    void getCoordinateF()
-    {
-        do(
-            FruitX = rand() % width;
-            FruitY = rand() % height;
-            score+=50;
-        )
-        while (matrix[fruitX][fruitY] == 'O' || matrix[FruitX][FruitY] == 'O');
-    }
+public:
+    // Constructor to initialize the board
+    Fruit(char m[20][20]);
 
-    //allocating coordinates for fruit(f)//
-    void getCoordinatef()
-    {
-        do( 
-            fruitX = rand() % width;
-            fruitY = rand() % height;
-            score+=10;
-        )
-        while (matrix[fruitX][fruitY] == 'O' || matrix[FruitX][FruitY] == 'O');
-    }
+    // Allocating coordinates for Fruit(F)
+    void getCoordinateF();
 
-       //spawning Fruit(F)
-    void spawnF()
-    {   
-        matrix[FruitX][FruitY] = '🫐';
-    }
+    // Allocating coordinates for fruit(f)
+    void getCoordinatef();
 
-    //spawning Fruit(f)
-    void spawnf()
-    {
-        matrix[FruitX][FruitY] = '🍎';
-    }
+    // Spawning Fruit(F)
+    void spawnF();
 
-        // Method to choose fruit and spawn it
-        void getFruit()
-    {
-        int randNum = rand() % 2;
-        if(randNum=0)
-        {
-            getCoordinateF();
-            spawnF();
-        }
-        if(randNum=1)
-        {
-            getCoordinatef();
-            spawnf();
-        }
+    // Spawning Fruit(f)
+    void spawnf();
 
-    }
+    // Choosing fruit and spawning it (either F or f)
+    void getFruit();
+
+    // Getter for the score
+    int getScore();
+
+    // For debugging: Print the current state of the game matrix
+    void printMatrix();
 };
 
-#endif
+#endif // FRUIT_H
