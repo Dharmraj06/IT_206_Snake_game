@@ -15,7 +15,7 @@ class fruit()
         do(
             FruitX = rand() % width;
             FruitY = rand() % height;
-            score+=10;
+            score+=50;
         )
         while (matrix[fruitX][fruitY] == 'O' || matrix[FruitX][FruitY] == 'O');
     }
@@ -34,13 +34,13 @@ class fruit()
     //spawning Fruit(F)
     void spawnF()
     {   
-        matrix[FruitX][FruitY] = 'F';
+        matrix[FruitX][FruitY] = '🫐';
     }
 
     //spawning Fruit(f)
     void spawnf()
     {
-        matrix[FruitX][FruitY] = 'f';
+        matrix[FruitX][FruitY] = '🍎';
     }
 
     //choosing fruit and spawning it
