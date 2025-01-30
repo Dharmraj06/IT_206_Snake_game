@@ -36,7 +36,7 @@ void Snake::draw() {
 }
 
 // Method to take input from the user
-eDirecton Snake::Input() {
+eDirection Snake::Input() {
     if (_kbhit()) {
         switch (_getch()) {
             case 'a': dir = LEFT; break;

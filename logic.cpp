@@ -1,12 +1,6 @@
-// #include<bits/stdc++.h>
-// using namespace std;
+#include<bits/stdc++.h>
 
-// class Logic{
-
-// };
-
-#include <iostream>
-#include <queue>
+#include "snake.h"
 using namespace std;
 
 // Directions: (dx, dy) → (UP, DOWN, LEFT, RIGHT)
@@ -14,40 +8,46 @@ int dx[] = {0, 0, -1, 1};
 int dy[] = {-1, 1, 0, 0};
 
 // Enum for directions
-enum Direction { UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3 };
+enum eDirection { UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3 };
 
-int main() {
-    queue<pair<int, int>> snake;
-    int gridSize = 10;
-    int snakeLength = 3; // Initial length
-    int dir = RIGHT;     // Initial direction
+Snake toy;
 
-    // Initialize snake at (5,5), (5,4), (5,3)
-    snake.push({5, 5});
-    snake.push({5, 4});
-    snake.push({5, 3});
+class Logic{
+private:
+    queue<pair<int,int>>snake_body;
+    int oldx,oldy;
+    int newy,newx;
+    queue<int>temp;
+    int head;
+    vector<pair<int,int>>pos;
+    
 
-    // Simulating movement
-    for (int t = 0; t < 10; t++) { // Move 10 times
-        pair<int, int> head = snake.back(); // Get current head
-        int newX = head.first + dx[dir];
-        int newY = head.second + dy[dir];
+public:
 
-        // Add new head
-        snake.push({newX, newY});
+    Logic(){
 
-        // Remove tail (if not eating food)
-        snake.pop();
+        snake_body.push({30,15});
+        snake_body.push({31,15});
+        snake_body.push({32,15});
 
-        // Print snake positions
-        cout << "Snake positions: ";
-        queue<pair<int, int>> temp = snake;
-        while (!temp.empty()) {
-            cout << "(" << temp.front().first << "," << temp.front().second << ") ";
-            temp.pop();
-        }
-        cout << endl;
     }
 
-    return 0;
-}
+   vector<pair<int,int>>movement(){
+
+        pair<int,int>head = snake_body.back(); //taking the position of the head
+
+        eDirection dir = toy.Input();
+        
+        head.first = head.first + dx[dir];
+        head.second = head.second + dy[dir];
+
+        snake_body.push(head);
+
+
+
+
+    }    
+    
+
+
+};
