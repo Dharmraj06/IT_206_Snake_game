@@ -6,13 +6,13 @@
 #include <windows.h>
 using namespace std;
 
-enum eDirecton { STOP = 0, LEFT, RIGHT, UP, DOWN };
+enum eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN };
 
 class Snake {
     private:
         int x, y, fruitX, fruitY, score;
         int width, height;
-        eDirecton dir;
+        eDirection dir;
         bool gameOver;
 
     public:
@@ -23,7 +23,7 @@ class Snake {
         void draw();
 
         // Method to handle input from the user
-        eDirecton Input() { return dir; }
+        eDirection Input() { return dir; }
 
         // Method to handle game logic
         void Logic();
