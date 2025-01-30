@@ -46,7 +46,7 @@ eDirecton Snake::Input() {
             case 'x': gameOver = true; break;  // Exit game if 'x' is pressed
         }
     }
-    return dir;
+    //return dir;
 }
 
 // Method to handle game logic
