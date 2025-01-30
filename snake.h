@@ -26,7 +26,7 @@ class Snake {
         eDirection Input() { return dir; }
 
         // Method to handle game logic
-        void Logic();
+        //void Logic();
 
         // Getter to check if the game is over
         bool isGameOver() { return gameOver; }

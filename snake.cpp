@@ -1,17 +1,17 @@
 #include "Snake.h"
 
 // Constructor to initialize the game
-Snake::Snake(int w, int h) {
-    width = w;
-    height = h;
-    x = width / 2;
-    y = height / 2;
-    fruitX = rand() % width;
-    fruitY = rand() % height;
-    score = 0;
-    dir = STOP;
-    gameOver = false;
-}
+// Snake::Snake(int w, int h) {
+//     width = w;
+//     height = h;
+//     x = width / 2;
+//     y = height / 2;
+//     fruitX = rand() % width;
+//     fruitY = rand() % height;
+//     score = 0;
+//     dir = STOP;
+//     gameOver = false;
+// }
 
 // Method to draw the game board
 void Snake::draw() {
@@ -46,28 +46,28 @@ eDirection Snake::Input() {
             case 'x': gameOver = true; break;  // Exit game if 'x' is pressed
         }
     }
-    //return dir;
+    return dir;
 }
 
-// Method to handle game logic
-void Snake::Logic() {
-    // Move the snake in the current direction
-    switch (dir) {
-        case LEFT: x--; break;
-        case RIGHT: x++; break;
-        case UP: y--; break;
-        case DOWN: y++; break;
-        default: break;
-    }
+// // Method to handle game logic
+// void Snake::Logic() {
+//     // Move the snake in the current direction
+//     switch (dir) {
+//         case LEFT: x--; break;
+//         case RIGHT: x++; break;
+//         case UP: y--; break;
+//         case DOWN: y++; break;
+//         default: break;
+//     }
 
-    // Check for wall collisions
-    if (x <= 0 || x >= width - 1 || y <= 0 || y >= height - 1)
-        gameOver = true;
+//     // Check for wall collisions
+//     if (x <= 0 || x >= width - 1 || y <= 0 || y >= height - 1)
+//         gameOver = true;
 
-    // Check for fruit collision
-    if (x == fruitX && y == fruitY) {
-        score += 10;
-        fruitX = rand() % width;
-        fruitY = rand() % height;
-    }
-}
+//     // Check for fruit collision
+//     if (x == fruitX && y == fruitY) {
+//         score += 10;
+//         fruitX = rand() % width;
+//         fruitY = rand() % height;
+//     }
+// }
