@@ -17,7 +17,7 @@ class Snake {
 
     public:
         // Constructor
-        Snake(int w, int h);
+        //Snake(int w, int h);
 
         // Method to draw the game board
         void draw();
@@ -26,7 +26,7 @@ class Snake {
         eDirection Input() { return dir; }
 
         // Method to handle game logic
-        void Logic();
+        //void Logic();
 
         // Getter to check if the game is over
         bool isGameOver() { return gameOver; }
