@@ -28,8 +28,12 @@ vector<pair<int, int>> Logic::movement() {
         return {};  // (no movement)
     }
 
-    snake_body.push(head);  
+    snake_body.push(head);
+    
+    if(!increase_size)  
     snake_body.pop();  // Remove the tail 
+    else
+    increase_size = false;
 
     // Update the pos vector to store current body positions
     pos.clear();

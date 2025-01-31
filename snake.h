@@ -35,6 +35,7 @@ class Snake : public Logic , public Fruit {
 
         // Getter to get the score
         int getScore() { return score; }
+
 };
 
 #endif

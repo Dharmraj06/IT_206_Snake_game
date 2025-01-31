@@ -43,7 +43,7 @@
 using namespace std;
 
 int main() {
-    char mat[30][30];
+    char mat[60][30];
 
     Fruit fruit;    
     Snake snake(60,30);    
@@ -59,17 +59,15 @@ int main() {
         //game.checkCollision();  
 
         // Spawn a new fruit
-        // fruit.getFruit();
+        //fruit.getFruit();
 
         // // Print the current game state (matrix with snake and fruit)
-        // //fruit.printMatrix();
+        snake.draw();
         
-        // // Get the score
-        // cout << "Score: " << fruit.getScore() << endl;// working 
+        // Get the score
+        cout << "Score: " << fruit.getScore() << endl;// working 
 
-        // gameOver = game.isGameOver();//working 
-
-
+        // game.gameOver = game.isGameOver();//working 
     }
 
     cout << "Game Over! Final Score: " << fruit.getScore() << endl;

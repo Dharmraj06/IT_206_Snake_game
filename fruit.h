@@ -14,7 +14,7 @@ protected:
 
 public:
     // Constructor to initialize the board
-    //Fruit(char m[20][20]);
+    Fruit();
 
     // Allocating coordinates for Fruit(F)
     void getCoordinateF();
@@ -22,11 +22,11 @@ public:
     // Allocating coordinates for fruit(f)
     void getCoordinatef();
 
-    // Spawning Fruit(F)
-    void spawnF();
+    // // Spawning Fruit(F)
+    // void spawnF();
 
-    // Spawning Fruit(f)
-    void spawnf();
+    // // Spawning Fruit(f)
+    // void spawnf();
 
     // Choosing fruit and spawning it (either F or f)
     void getFruit();
@@ -34,8 +34,6 @@ public:
     // Getter for the score
     int getScore();
 
-    // For debugging: Print the current state of the game matrix
-    void printMatrix();
 };
 
 #endif 
