@@ -1,37 +1,61 @@
 #include "logic.h"
-#include"snake.h"
+#include "snake.h"
+
 // Directions: (dx, dy) → (UP, DOWN, LEFT, RIGHT)
 int dx[] = {0, 0, -1, 1};
 int dy[] = {-1, 1, 0, 0};
 
-Snake toy;
+Snake toy(60,30); 
 
-Logic::Logic() {
-    // Initializing the snake's body with three positions
+Logic::Logic(){
+    
     snake_body.push({30, 15});
     snake_body.push({31, 15});
     snake_body.push({32, 15});
+    gameOver = false; 
 }
 
 vector<pair<int, int>> Logic::movement() {
-    pair<int, int> head = snake_body.back(); // Getting the position of the head
+    pair<int, int> head = snake_body.back(); 
 
-    eDirection dir = toy.Input();  // Get the direction from Snake class
+    toy.Input();  
 
-    // Updating the head's position based on direction
-    head.first = head.first + dx[dir];
-    head.second = head.second + dy[dir];
+    head.first += dx[toy.dir];
+    head.second += dy[toy.dir];
 
-    snake_body.push(head);  // Add the new head position
+    if (checkCollision(head)) {
+        gameOver = true; 
+        return {};  // (no movement)
+    }
 
-    snake_body.pop();  // Remove the tail (last part of the body)
+    snake_body.push(head);  
+    snake_body.pop();  // Remove the tail 
 
+    // Update the pos vector to store current body positions
+    pos.clear();
     temp = snake_body;
-
     while (!temp.empty()) {
-        pos.push_back(temp.front());  // Push body parts into pos vector
+        pos.push_back(temp.front());
         temp.pop();
     }
 
-    return pos;  // Return the positions of the snake's body
+    return pos;  
+}
+
+bool Logic::isGameOver() {
+    return gameOver;
+}
+
+bool Logic::checkCollision(pair<int, int> newHead) {
+
+    if (newHead.first < 0 || newHead.first >= width ||
+        newHead.second < 0 || newHead.second >= height) {
+        return true;
+    }
+
+    for (pair<int, int> segment : pos) {
+        if (segment == newHead) return true;
+    }
+
+    return false;
 }

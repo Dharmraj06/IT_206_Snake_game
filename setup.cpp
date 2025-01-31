@@ -43,40 +43,36 @@
 using namespace std;
 
 int main() {
-    // Initialize the game board (matrix)
-    char matrix[20][20];
+    char mat[30][30];
 
-    // Initialize the fruit, snake, and game logic
-    Fruit fruit(matrix);    // Fruit object to manage fruit placement and scoring
-    Snake snake(20, 20);    // Snake object with the board size
-    Logic game(snake, fruit, matrix);  // Logic object to manage the game behavior
+    Fruit fruit;    
+    Snake snake(60,30);    
+    Logic game;  
 
-    // Seed the random number generator
     srand(time(0));
 
-    // Start the game loop
-    bool gameOver = false;
+    game.gameOver = false;
 
-    while (!gameOver) {
-        // Get user input for snake movement and update the game state
-        snake.Input();
-        game.moveSnake();  // Update snake position
-        game.checkCollision();  // Check for collisions
+    while (!game.gameOver) {
+                
+        game.movement();  
+        //game.checkCollision();  
 
         // Spawn a new fruit
-        fruit.getFruit();
+        // fruit.getFruit();
 
-        // Print the current game state (matrix with snake and fruit)
-        game.printMatrix();
+        // // Print the current game state (matrix with snake and fruit)
+        // //fruit.printMatrix();
         
-        // Get the score
-        cout << "Score: " << game.getScore() << endl;
+        // // Get the score
+        // cout << "Score: " << fruit.getScore() << endl;// working 
 
-        // If the game is over, break the loop
-        gameOver = game.isGameOver();
+        // gameOver = game.isGameOver();//working 
+
+
     }
 
-    cout << "Game Over! Final Score: " << game.getScore() << endl;
+    cout << "Game Over! Final Score: " << fruit.getScore() << endl;
 
-    return 0;
+    return 0;
 }

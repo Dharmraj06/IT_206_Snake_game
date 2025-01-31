@@ -4,32 +4,34 @@
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 enum eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN };
 
-class Snake {
+class Snake : public Logic , public Fruit {
     private:
-        int x, y, fruitX, fruitY, score;
+        //int x, y, fruitX, fruitY;
+        int score;
         int width, height;
-        eDirection dir;
-        bool gameOver;
+       
 
     public:
-        // Constructor
-        //Snake(int w, int h);
 
-        // Method to draw the game board
+
+        eDirection dir;
+        Snake() { 
+        // Default constructor
+        }
+
+        Snake(int w, int h);
+
         void draw();
 
-        // Method to handle input from the user
-        eDirection Input() { return dir; }
+        void Input();
 
         // Method to handle game logic
-        //void Logic();
-
-        // Getter to check if the game is over
-        bool isGameOver() { return gameOver; }
+        //void Logic();        
 
         // Getter to get the score
         int getScore() { return score; }

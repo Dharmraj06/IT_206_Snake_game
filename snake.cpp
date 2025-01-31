@@ -1,73 +1,69 @@
 #include "Snake.h"
+#include "logic.h"
+#include "fruit.h"
 
-// Constructor to initialize the game
-// Snake::Snake(int w, int h) {
-//     width = w;
-//     height = h;
-//     x = width / 2;
-//     y = height / 2;
-//     fruitX = rand() % width;
-//     fruitY = rand() % height;
-//     score = 0;
-//     dir = STOP;
-//     gameOver = false;
-// }
+Snake::Snake(int w, int h) {
+    width = w;
+    height = h;
+    // x = width / 2;
+    // y = height / 2;
+    // fruitX = rand() % width;
+    // fruitY = rand() % height;
+    score = 0;
+    dir = STOP;
+   
+}
 
-// Method to draw the game board
 void Snake::draw() {
-    // Clear the screen (works on most systems)
-    cout << "\033[2J\033[H";  // Clear screen and reset cursor position
+    // Clear 
+    cout << system("cls");  
 
-    // Drawing the snake field
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
             if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
-                cout << "#";  // Draw the border
-            else if (i == y && j == x)
-                cout << "O";  // Snake's head
-            else if (i == fruitY && j == fruitX)
-                cout << "F";  // Fruit
+                cout << "#";  
+            // else if (i == y && j == x)
+            //     cout << "O";  
+            else if (i == fruitY && j == fruitX)//this is the code for apple
+                cout << "A"; 
+            else if (i == FruitY && j == FruitX)//this is the code for blueberry
+                cout<< "B";
             else
-                cout << " ";
+            {
+                bool print = false;
+                for (int k = 0; k < pos.size(); k++)
+                {
+                    pair<int,int>body = {i,j};
+                    if(body == pos[pos.size()-1]) // if the pos is equal to the position of the head
+                    {
+                        cout << "O";
+                        print = true;
+                    }
+                    else if(find(pos.begin(),pos.end(),body) != pos.end())
+                    {
+                        cout << "o";
+                        print = true;
+                    }
+                }
+                if (!print)
+                    cout << " ";
+            }
         }
         cout << endl;
     }
     cout << "Score: " << score << endl;
 }
 
-// Method to take input from the user
-eDirection Snake::Input() {
+void Snake::Input() {
     if (_kbhit()) {
         switch (_getch()) {
             case 'a': dir = LEFT; break;
             case 'd': dir = RIGHT; break;
             case 'w': dir = UP; break;
             case 's': dir = DOWN; break;
-            case 'x': gameOver = true; break;  // Exit game if 'x' is pressed
+            case 'x': gameOver = true; break;  
         }
     }
-    return dir;
+    
 }
 
-// // Method to handle game logic
-// void Snake::Logic() {
-//     // Move the snake in the current direction
-//     switch (dir) {
-//         case LEFT: x--; break;
-//         case RIGHT: x++; break;
-//         case UP: y--; break;
-//         case DOWN: y++; break;
-//         default: break;
-//     }
-
-//     // Check for wall collisions
-//     if (x <= 0 || x >= width - 1 || y <= 0 || y >= height - 1)
-//         gameOver = true;
-
-//     // Check for fruit collision
-//     if (x == fruitX && y == fruitY) {
-//         score += 10;
-//         fruitX = rand() % width;
-//         fruitY = rand() % height;
-//     }
-// }

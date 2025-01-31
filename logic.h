@@ -3,19 +3,27 @@
 
 #include <queue>
 #include <vector>
-#include "snake.h"  // Include the Snake class
-
+#include "snake.h"  
 using namespace std;
 
-class Logic {
-private:
-    queue<pair<int, int>> snake_body;
-    queue<pair<int, int>> temp;
-    vector<pair<int, int>> pos;
+class Logic : public Snake {
+protected:
+    queue<pair<int, int>> snake_body; 
+    vector<pair<int, int>> pos;  
+    queue<pair<int, int>>temp;
+    int width = 40, height = 20; 
+    
 
 public:
-    Logic();  // Constructor to initialize the game
-    vector<pair<int, int>> movement();  // Method to move the snake and update body positions
+    bool gameOver;
+    Logic();  
+    vector<pair<int, int>> movement(); 
+    bool isGameOver();  
+    bool checkCollision(pair<int, int> newHead);  
+    
+    bool isGameOver() { return gameOver; }
+
 };
 
 #endif
+
