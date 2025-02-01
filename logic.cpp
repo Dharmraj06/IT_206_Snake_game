@@ -8,7 +8,7 @@ int dy[] = {-1, 1, 0, 0};
 Snake toy(60,30); 
 
 Logic::Logic(){
-    
+    cout<<"snake initialised"<<endl;
     snake_body.push({30, 15});
     snake_body.push({31, 15});
     snake_body.push({32, 15});
@@ -46,9 +46,9 @@ vector<pair<int, int>> Logic::movement() {
     return pos;  
 }
 
-bool Logic::isGameOver() {
-    return gameOver;
-}
+// bool Logic::isGameOver() {
+//     return gameOver;
+// }
 
 bool Logic::checkCollision(pair<int, int> newHead) {
 

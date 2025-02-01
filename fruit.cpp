@@ -9,22 +9,15 @@ void Fruit::getCoordinateF() {
     
         FruitX = rand() % width;
         FruitY = rand() % height;
-  
+        std::cout<<"Fruit(x,y)"<<FruitX<<","<<FruitY;
 }
 
 void Fruit::getCoordinatef() {
         fruitX = rand() % width;
         fruitY = rand() % height;
+        std::cout<<"fruit(x,y)"<<fruitX<<","<<fruitY;
         
 }
-
-// void Fruit::spawnF() {
-//     matrix[FruitX][FruitY] = '$';  // Fruit(F) with a blueberry emoji
-// }
-
-// void Fruit::spawnf() {
-//     matrix[fruitX][fruitY] = '&';  // fruit(f) with an apple emoji
-// }
 
 void Fruit::getFruit() {
     int randNum = rand() % 2;
@@ -37,15 +30,4 @@ void Fruit::getFruit() {
     }
 }
 
-int Fruit::getScore() {
-    return score;
-}
 
-// void Fruit::printMatrix() {
-//     for (int i = 0; i < height; i++) {
-//         for (int j = 0; j < width; j++) {
-//             std::cout << matrix[i][j] << " ";  // Print element
-//         }
-//         std::cout << std::endl;  // New line afterrow
-//     }
-// }

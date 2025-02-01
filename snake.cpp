@@ -16,8 +16,12 @@ Snake::Snake(int w, int h)
 
 void Snake::draw()
 {
-    // Clear
-    cout << system("cls");
+    system("cls");  // Correct way to clear the screen in Windows
+
+    if (pos.empty()) {
+        cout << "Error: pos is empty!" << endl;
+        return;  // Prevent further execution
+    }
 
     for (int i = 0; i < height; i++)
     {
@@ -25,27 +29,17 @@ void Snake::draw()
         {
             if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
                 cout << "#";
-            // else if (i == y && j == x)
-            //     cout << "O";
-            else if (i == fruitY && j == fruitX) // this is the code for apple
-            {
+            else if (i == fruitY && j == fruitX) // Apple
                 cout << "A";
-                fruitX = 0;
-                fruitY = 0;
-            }
-            else if (i == FruitY && j == FruitX) // this is the code for blueberry
-            {
+            else if (i == FruitY && j == FruitX) // Blueberry
                 cout << "B";
-                FruitX = 0;
-                FruitY = 0;
-            }
             else
             {
                 bool print = false;
-                for (int k = 0; k < pos.size(); k++)
+                for (size_t k = 0; k < pos.size(); k++)
                 {
                     pair<int, int> body = {i, j};
-                    if (body == pos[pos.size() - 1]) // if the cursor position is equal to the position of the head
+                    if (body == pos[pos.size() - 1]) // Head of the snake
                     {
                         cout << "O";
                         print = true;
@@ -54,13 +48,13 @@ void Snake::draw()
                         {
                             score += 10;
                             Fruit::getFruit();
-                            Logic::increase_size  = true;
+                            this->increase_size = true;  // Fix inheritance issue
                         }
                         else if (FruitX == pos[pos.size() - 1].first && FruitY == pos[pos.size() - 1].second)
                         {
                             score += 50;
                             Fruit::getFruit();
-                            Logic::increase_size = true;
+                            this->increase_size = true;
                         }
                     }
                     else if (find(pos.begin(), pos.end(), body) != pos.end())

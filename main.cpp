@@ -1,17 +1,42 @@
-#include "Snake.h"
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include "fruit.h"
+#include "snake.h"
+#include "logic.h"
+
+using namespace std;
 
 int main() {
-    // Create a game object with dimensions 30x30
-    Snake game(30, 30);
+    char mat[60][30];
 
-    // Main game loop
-    while (!game.isGameOver()) {
-        game.draw();
-        game.Input();
-        game.Logic();
-        Sleep(100);  // Slow down the game loop to make it playable
+    Fruit fruit;    
+    Snake snake(60,30);    
+    Logic game;  
+
+    srand(time(0));
+
+    game.gameOver = false;
+
+    while (!game.gameOver) {
+                
+        game.movement();  
+        //game.checkCollision();  
+
+        // Spawn a new fruit
+        //fruit.getFruit();
+
+        //Print the current game state (matrix with snake and fruit)
+        snake.draw();
+        
+        // Get the score
+        cout << "Score: " <<  snake.getScore() << endl;// working 
+
+        // game.gameOver = game.isGameOver();//working 
     }
 
-    cout << "Game Over! Final Score: " << game.getScore() << endl;
+    cout << "Game Over! Final Score: " << snake.getScore() << endl;
+
     return 0;
 }
