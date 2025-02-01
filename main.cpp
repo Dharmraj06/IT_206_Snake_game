@@ -3,7 +3,7 @@
 #include <ctime>
 #include "fruit.h"
 #include "snake.h"
-// Remove logic.h if Snake already includes it
+// No need to include logic.h separately if Snake inherits from it.
 
 using namespace std;
 
@@ -14,12 +14,21 @@ int main() {
 
     snake.gameOver = false;
 
-    while (!snake.gameOver) {
-        snake.movement();  
-        snake.draw();
-        cout << "Score: " << snake.getScore() << endl;
-        Sleep(5);
-    }
+    // In main.cpp
+while (!snake.gameOver) {
+   
+    snake.Input();  
+
+    
+    snake.movement();
+
+   
+    snake.draw();
+
+    cout << "Score: " << snake.getScore() << endl;
+    Sleep(50);
+}
+
 
     cout << "Game Over! Final Score: " << snake.getScore() << endl;
     return 0;

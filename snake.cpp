@@ -16,12 +16,13 @@ Snake::Snake(int w, int h)
 
 void Snake::draw()
 {
-    system("cls");  // Clear the screen
+    system("cls"); // Clear the screen
 
     // Update the snake's movement before drawing
     movement();
 
-    if (pos.empty()) {
+    if (pos.empty())
+    {
         cout << "Error: pos is empty!" << endl;
         return;
     }
@@ -31,14 +32,17 @@ void Snake::draw()
         for (int j = 0; j < width; j++)
         {
             // Draw borders
-            if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
+            if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
+            {
                 cout << "#";
             }
             // Draw fruits
-            else if (i == fruitY && j == fruitX) {
+            else if (i == fruitY && j == fruitX)
+            {
                 cout << "A";
             }
-            else if (i == FruitY && j == FruitX) {
+            else if (i == FruitY && j == FruitX)
+            {
                 cout << "B";
             }
             else
@@ -46,10 +50,12 @@ void Snake::draw()
                 // Check if the current cell is part of the snake
                 pair<int, int> cell = {i, j};
                 auto it = find(pos.begin(), pos.end(), cell);
-                if (it != pos.end()) {
+                if (it != pos.end())
+                {
                     // Determine if it is the head (the last element in pos)
-                    if (cell == pos.back()) {
-                        cout << "O";  // Head
+                    if (cell == pos.back())
+                    {
+                        cout << "O"; // Head
                         // (Perform fruit collision check if needed)
                         if (fruitX == cell.first && fruitY == cell.second)
                         {
@@ -63,11 +69,15 @@ void Snake::draw()
                             Fruit::getFruit();
                             this->increase_size = true;
                         }
-                    } else {
-                        cout << "o";  // Body part
                     }
-                } else {
-                    cout << " ";  // Empty cell
+                    else
+                    {
+                        cout << "o"; // Body part
+                    }
+                }
+                else
+                {
+                    cout << " "; // Empty cell
                 }
             }
         }
@@ -75,7 +85,6 @@ void Snake::draw()
     }
     cout << "Score: " << score << endl;
 }
-
 
 void Snake::Input()
 {
@@ -85,25 +94,24 @@ void Snake::Input()
         {
         case 'a':
             dir = LEFT;
-            //cout<<"L";
+            // cout<<"L";
             break;
         case 'd':
             dir = RIGHT;
-            //cout<<"R";
+            // cout<<"R";
             break;
         case 'w':
             dir = UP;
-            //cout<<"U";
+            // cout<<"U";
             break;
         case 's':
             dir = DOWN;
-            //cout<<"D";
+            // cout<<"D";
             break;
         case 'x':
             gameOver = true;
-            //cout<<"GAME OVER";
+            // cout<<"GAME OVER";
             break;
         }
     }
 }
-
