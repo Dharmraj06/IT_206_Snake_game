@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
     // Use one Snake object as the game instance.
-    Snake snake(20, 40);    
+    Snake snake(40, 20);    
     srand(time(0));  
 
     snake.gameOver = false;

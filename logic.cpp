@@ -1,17 +1,17 @@
 #include "logic.h"
 #include "snake.h"
 
-// Directions: (dx, dy) → (UP, DOWN, LEFT, RIGHT)
-int dx[] = {-1, 1,0,0};
-int dy[] = {0, 0, 1,-1 };
+// Directions: (dx, dy) → (LEFT, RIGHT, UP, DOWN)
+int dx[] = {0, 0,-1,1};
+int dy[] = {-1, 1, 0,0 };
 
-Snake toy(20,40); 
+Snake toy(40,20); 
 
 Logic::Logic(){
     //cout<<"snake initialised"<<endl;
-    snake_body.push({10, 10});
-    snake_body.push({10, 11});
-    snake_body.push({10, 12});
+    snake_body.push({20, 10});
+    snake_body.push({20, 11});
+    snake_body.push({20, 12});
     gameOver = false; 
 }
 
