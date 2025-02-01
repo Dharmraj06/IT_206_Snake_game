@@ -9,13 +9,13 @@ void Fruit::getCoordinateF() {
     
         FruitX = rand() % width;
         FruitY = rand() % height;
-        std::cout<<"Fruit(x,y)"<<FruitX<<","<<FruitY;
+        //std::cout<<"Fruit(x,y)"<<FruitX<<","<<FruitY<<std::endl;
 }
 
 void Fruit::getCoordinatef() {
         fruitX = rand() % width;
         fruitY = rand() % height;
-        std::cout<<"fruit(x,y)"<<fruitX<<","<<fruitY;
+        //std::cout<<"fruit(x,y)"<<fruitX<<","<<fruitY<<std::endl;
         
 }
 

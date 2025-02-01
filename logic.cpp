@@ -2,20 +2,20 @@
 #include "snake.h"
 
 // Directions: (dx, dy) → (UP, DOWN, LEFT, RIGHT)
-int dx[] = {0, 0, -1, 1};
-int dy[] = {-1, 1, 0, 0};
+int dx[] = {-1, 1,0,0};
+int dy[] = {0, 0, 1,-1 };
 
-Snake toy(60,30); 
+Snake toy(20,40); 
 
 Logic::Logic(){
-    cout<<"snake initialised"<<endl;
-    snake_body.push({30, 15});
-    snake_body.push({31, 15});
-    snake_body.push({32, 15});
+    //cout<<"snake initialised"<<endl;
+    snake_body.push({10, 10});
+    snake_body.push({10, 11});
+    snake_body.push({10, 12});
     gameOver = false; 
 }
 
-vector<pair<int, int>> Logic::movement() {
+void Logic::movement() {
     pair<int, int> head = snake_body.back(); 
 
     toy.Input();  
@@ -24,8 +24,7 @@ vector<pair<int, int>> Logic::movement() {
     head.second += dy[toy.dir];
 
     if (checkCollision(head)) {
-        gameOver = true; 
-        return {};  // (no movement)
+        gameOver = true;  // (no movement)
     }
 
     snake_body.push(head);
@@ -41,25 +40,32 @@ vector<pair<int, int>> Logic::movement() {
     while (!temp.empty()) {
         pos.push_back(temp.front());
         temp.pop();
-    }
-
-    return pos;  
+    }  
 }
 
 // bool Logic::isGameOver() {
 //     return gameOver;
 // }
 
-bool Logic::checkCollision(pair<int, int> newHead) {
-
-    if (newHead.first < 0 || newHead.first >= width ||
-        newHead.second < 0 || newHead.second >= height) {
-        return true;
+bool Logic::checkCollision(pair<int, int>& newHead) {
+    // Wrap-around logic for horizontal movement
+    if (newHead.first >= width)
+        newHead.first = 0;
+    else if (newHead.first < 0)
+        newHead.first = width - 1;
+    
+    // Wrap-around logic for vertical movement
+    if (newHead.second >= height)
+        newHead.second = 0;
+    else if (newHead.second < 0)
+        newHead.second = height - 1;
+    
+    // Check self-collision: if the new head position is already in the snake's body
+    for (const pair<int, int>& segment : pos) {
+        if (segment == newHead)
+            return true;
     }
-
-    for (pair<int, int> segment : pos) {
-        if (segment == newHead) return true;
-    }
-
+    
     return false;
 }
+

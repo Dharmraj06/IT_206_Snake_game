@@ -10,7 +10,7 @@
 
 using namespace std;
 
-enum eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN };
+enum eDirection {LEFT, RIGHT, UP, DOWN };
 
 class Snake : public Logic, public Fruit {
 private:

@@ -7,9 +7,9 @@
 class Fruit {
 protected:
     int FruitX, FruitY, fruitX, fruitY;  
-    char matrix[60][30];  
-    int width = 60;  
-    int height = 30; 
+    char matrix[20][40];  
+    int width = 20;  
+    int height = 40; 
     int score = 0;  
 
 public:

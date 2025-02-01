@@ -17,9 +17,9 @@ protected:
 public:
     bool gameOver;
     Logic();  
-    vector<pair<int, int>> movement(); 
+    void movement(); 
     
-    bool checkCollision(pair<int, int> newHead);  
+    bool checkCollision(pair<int, int>& newHead);  
     
     bool isGameOver() { return gameOver; }
 
