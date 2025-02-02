@@ -39,15 +39,6 @@ void Snake::draw()
             {
                 cout << "#";
             }
-            // Draw fruits.
-            else if (i == fruitY && j == fruitX) // Small fruit type.
-            {
-                cout << "A";
-            }
-            else if (i == FruitY && j == FruitX) // Big fruit type.
-            {
-                cout << "B";
-            }
             else if (it != pos.end())
             {
                 // Check if the current cell is part of the snake.
@@ -63,8 +54,7 @@ void Snake::draw()
                     cout << "O"; // Head.
                     // Check for fruit collision.
                     if (cell.first == fruitY && cell.second == fruitX) // first=i second = j
-                    {                                                  //    cout<<"yes"<<endl;
-                                                                       //     exit(0);
+                    {                                                 
                         score += 10;
                         this->getFruit(); // Regenerate fruit coordinates.
                         this->increase_size = true;
@@ -83,6 +73,15 @@ void Snake::draw()
                 {
                     cout << "o"; // Body part.
                 }
+            }
+            // Draw fruits.
+            else if (i == fruitY && j == fruitX) // Small fruit type.
+            {
+                cout << "A";
+            }
+            else if (i == FruitY && j == FruitX) // Big fruit type.
+            {
+                cout << "B";
             }
             else
             {
