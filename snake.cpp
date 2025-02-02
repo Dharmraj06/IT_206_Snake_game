@@ -21,72 +21,72 @@ void Snake::draw()
     // Update movement before drawing.
     movement();
 
-    if (pos.empty()) {
+    if (pos.empty())
+    {
         cout << "Error: pos is empty!" << endl;
         return;
     }
-    cout<<fruitY<<" "<<fruitX<<endl;//i,j
+    cout << fruitY << " " << fruitX << endl; // i,j
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
+            pair<int, int> cell = {i, j};
+            auto it = find(pos.begin(), pos.end(), cell);
             // Draw borders.
             if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
             {
                 cout << "#";
             }
             // Draw fruits.
-            else if (i == fruitY && j == fruitX)  // Small fruit type.
+            else if (i == fruitY && j == fruitX) // Small fruit type.
             {
                 cout << "A";
             }
-            else if (i == FruitY && j == FruitX)  // Big fruit type.
+            else if (i == FruitY && j == FruitX) // Big fruit type.
             {
                 cout << "B";
             }
-            else
+            else if (it != pos.end())
             {
                 // Check if the current cell is part of the snake.
-                pair<int, int> cell = { i, j };
-                auto it = find(pos.begin(), pos.end(), cell);
-                if (it != pos.end())
-                {   
-                    // Determine if it is the head (the last element in pos).
-                    if (cell == pos.back())
-                    {
-                        if(cell.first == 14 && cell.second==27){
-                            cout<<"reaching"<<endl;
-                            exit(0);
-                            gameOver = true;
-                        }
-                        cout << "O";  // Head.
-                        // Check for fruit collision.
-                        if (cell.first == fruitY && cell.second == fruitX)//first=i second = j
-                        {   cout<<"yes"<<endl;
-                            exit(0);
-                            score += 10;
-                            this->getFruit();  // Regenerate fruit coordinates.
-                            this->increase_size = true;
-                        }
-                        else if (cell.first == FruitY && cell.second == FruitX)
-                        {
-                            
-                            cout<<"yes"<<endl;
-                            exit(0);
-                            score += 50;
-                            this->getFruit();
-                            this->increase_size = true;
-                        }
+                // pair<int, int> cell = {i, j};
+                // auto it = find(pos.begin(), pos.end(), cell);
+
+                // Determine if it is the head (the last element in pos).
+                if (cell == pos.back())
+                {
+                    sx = cell.first;
+                    sy = cell.second;
+
+                    cout << "O"; // Head.
+                    // Check for fruit collision.
+                    if (cell.first == fruitY && cell.second == fruitX) // first=i second = j
+                    {                                                  //    cout<<"yes"<<endl;
+                                                                       //     exit(0);
+                        score += 10;
+                        this->getFruit(); // Regenerate fruit coordinates.
+                        this->increase_size = true;
                     }
-                    else
+                    else if (cell.first == FruitY && cell.second == FruitX)
                     {
-                        cout << "o";  // Body part.
+
+                        // cout<<"yes"<<endl;
+                        // exit(0);
+                        score += 50;
+                        this->getFruit();
+                        this->increase_size = true;
                     }
                 }
                 else
                 {
-                    cout << " ";  // Empty cell.
+                    cout << "o"; // Body part.
                 }
+            }
+            else
+            {
+                cout << " "; // Empty cell.
             }
         }
         cout << endl;

@@ -8,8 +8,8 @@ class Fruit {
 protected:
     int FruitX, FruitY, fruitX, fruitY;  
     //char matrix[40][20];  
-    int width = 40;  
-    int height = 20; 
+    int width = 20;  
+    int height = 10; 
     //int score = 0;  
 
 public:

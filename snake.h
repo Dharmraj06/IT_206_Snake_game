@@ -16,8 +16,11 @@ class Snake : public Logic, public Fruit {
 private:
     int score;
     int width, height;
+    
 
 public:
+    bool reaching = false;
+    int sx,sy;
     eDirection dir;
     Snake() { }
     Snake(int w, int h);
