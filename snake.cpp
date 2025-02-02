@@ -18,66 +18,74 @@ void Snake::draw()
 {
     system("cls"); // Clear the screen
 
-    // Update the snake's movement before drawing
+    // Update movement before drawing.
     movement();
 
-    if (pos.empty())
-    {
+    if (pos.empty()) {
         cout << "Error: pos is empty!" << endl;
         return;
     }
-
+    cout<<fruitY<<" "<<fruitX<<endl;//i,j
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            // Draw borders
+            // Draw borders.
             if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
             {
                 cout << "#";
             }
-            // Draw fruits
-            else if (i == fruitY && j == fruitX)
+            // Draw fruits.
+            else if (i == fruitY && j == fruitX)  // Small fruit type.
             {
                 cout << "A";
             }
-            else if (i == FruitY && j == FruitX)
+            else if (i == FruitY && j == FruitX)  // Big fruit type.
             {
                 cout << "B";
             }
             else
             {
-                // Check if the current cell is part of the snake
-                pair<int, int> cell = {i, j};
+                // Check if the current cell is part of the snake.
+                pair<int, int> cell = { i, j };
                 auto it = find(pos.begin(), pos.end(), cell);
                 if (it != pos.end())
-                {
-                    // Determine if it is the head (the last element in pos)
+                {   
+                    // Determine if it is the head (the last element in pos).
                     if (cell == pos.back())
                     {
-                        cout << "O"; // Head
-                        // (Perform fruit collision check if needed)
-                        if (fruitX == cell.first && fruitY == cell.second)
-                        {
+                        if(cell.first == 14 && cell.second==27){
+                            cout<<"reaching"<<endl;
+                            exit(0);
+                            gameOver = true;
+                        }
+                        cout << "O";  // Head.
+                        // Check for fruit collision.
+                        if (cell.first == fruitY && cell.second == fruitX)//first=i second = j
+                        {   cout<<"yes"<<endl;
+                            exit(0);
                             score += 10;
-                            Fruit::getFruit();
+                            this->getFruit();  // Regenerate fruit coordinates.
                             this->increase_size = true;
                         }
-                        else if (FruitX == cell.first && FruitY == cell.second)
+                        else if (cell.first == FruitY && cell.second == FruitX)
                         {
+                            
+                            cout<<"yes"<<endl;
+                            exit(0);
                             score += 50;
-                            Fruit::getFruit();
+                            this->getFruit();
                             this->increase_size = true;
                         }
                     }
                     else
                     {
-                        cout << "o"; // Body part
+                        cout << "o";  // Body part.
                     }
                 }
                 else
                 {
-                    cout << " "; // Empty cell
+                    cout << " ";  // Empty cell.
                 }
             }
         }
@@ -85,7 +93,6 @@ void Snake::draw()
     }
     cout << "Score: " << score << endl;
 }
-
 void Snake::Input()
 {
     if (_kbhit())

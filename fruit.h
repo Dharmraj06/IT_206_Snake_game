@@ -7,10 +7,10 @@
 class Fruit {
 protected:
     int FruitX, FruitY, fruitX, fruitY;  
-    char matrix[40][20];  
-    int width = 20;  
-    int height = 40; 
-    int score = 0;  
+    //char matrix[40][20];  
+    int width = 40;  
+    int height = 20; 
+    //int score = 0;  
 
 public:
     Fruit();
