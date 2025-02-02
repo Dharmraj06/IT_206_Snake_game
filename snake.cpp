@@ -58,6 +58,8 @@ void Snake::draw()
                         score += 10;
                         this->getFruit(); // Regenerate fruit coordinates.
                         this->increase_size = true;
+                        //fruitX = 0;
+                        //fruitY = 0;
                     }
                     else if (cell.first == FruitY && cell.second == FruitX)
                     {
@@ -67,6 +69,8 @@ void Snake::draw()
                         score += 50;
                         this->getFruit();
                         this->increase_size = true;
+                        //FruitX = 0;
+                        //FruitY = 0;
                     }
                 }
                 else
