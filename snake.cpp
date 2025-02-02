@@ -16,8 +16,8 @@ Snake::Snake(int w, int h)
 
 void Snake::draw()
 {
-    system("cls"); // Clear the screen
-
+    //system("cls"); // Clear the screen
+    gotoXY(0,0);
     // Update movement before drawing.
     movement();
 
@@ -26,7 +26,7 @@ void Snake::draw()
         cout << "Error: pos is empty!" << endl;
         return;
     }
-    cout << fruitY << " " << fruitX << endl; // i,j
+    //cout << fruitY << " " << fruitX << endl; // i,j
 
     for (int i = 0; i < height; i++)
     {
@@ -124,4 +124,9 @@ void Snake::Input()
             break;
         }
     }
+}
+
+void Snake::gotoXY(int x, int y) {
+    COORD coord = { static_cast<SHORT>(x), static_cast<SHORT>(y) };
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }

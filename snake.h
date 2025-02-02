@@ -28,6 +28,7 @@ public:
     void draw();
     void Input();
     int getScore() { return score; }
+    void gotoXY(int x, int y);
 };
 
 #endif

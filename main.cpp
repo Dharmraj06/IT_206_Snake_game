@@ -7,8 +7,19 @@
 
 using namespace std;
 
+void hideCursor() {
+    HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_CURSOR_INFO cursorInfo;
+    GetConsoleCursorInfo(consoleHandle, &cursorInfo);
+    cursorInfo.bVisible = FALSE;  // Set to false to hide the cursor
+    SetConsoleCursorInfo(consoleHandle, &cursorInfo);
+}
+
 int main() {
     // Use one Snake object as the game instance.
+    system("cls");
+
+    hideCursor();
     Snake snake(40, 20);    
     srand(time(0));  
 
@@ -25,7 +36,7 @@ while (!snake.gameOver) {
    
     snake.draw();
     
-        cout<<"reaching to "<<snake.sx<<" "<<snake.sy<<endl;
+        //cout<<"reaching to "<<snake.sx<<" "<<snake.sy<<endl;
     
     cout << "Score: " << snake.getScore() << endl;
     Sleep(50);
