@@ -24,7 +24,7 @@ int main() {
     srand(time(0));  
 
     snake.gameOver = false;
-
+    SetConsoleOutputCP(CP_UTF8);
     // In main.cpp
 while (!snake.gameOver) {
    
