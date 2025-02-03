@@ -81,11 +81,11 @@ void Snake::draw()
             // Draw fruits.
             else if (i == fruitY && j == fruitX) // Small fruit type.
             {
-                cout << "\U0001F34E";
+                cout << "A";
             }
             else if (i == FruitY && j == FruitX) // Big fruit type.
             {
-                cout << "\U0001F347";
+                cout << "B";
             }
             else
             {

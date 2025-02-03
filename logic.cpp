@@ -62,15 +62,19 @@ bool Logic::checkCollision(pair<int, int> &newHead)
 {
     // Wrap-around logic for horizontal movement
     if (newHead.first >= height)
-        newHead.first = 0;
+        // newHead.first = 0;
+        gameOver = true;
     else if (newHead.first < 0)
-        newHead.first = height - 1;
+        // newHead.first = height - 1;
+        gameOver = true;
 
     // Wrap-around logic for vertical movement
     if (newHead.second >= width)
-        newHead.second = 0;
+        // newHead.second = 0;
+        gameOver = true;
     else if (newHead.second < 0)
-        newHead.second = width - 1;
+        // newHead.second = width - 1;
+        gameOver = true;
 
     // Check self-collision: if the new head position is already in the snake's body
     for (const pair<int, int> &segment : pos)

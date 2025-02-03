@@ -8,13 +8,14 @@ using namespace std;
 
 class Logic{
 protected:
-    queue<pair<int, int>> snake_body; 
+     
     vector<pair<int, int>> pos;  
     queue<pair<int, int>>temp;
     int width = 40, height = 20; 
     bool increase_size = false; 
 
 public:
+    queue<pair<int, int>> snake_body;
     bool gameOver;
     Logic();  
     void movement(); 
