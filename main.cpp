@@ -15,10 +15,17 @@ void hideCursor() {
     SetConsoleCursorInfo(consoleHandle, &cursorInfo);
 }
 
+void enableANSI() {
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    DWORD dwMode = 0;
+    GetConsoleMode(hOut, &dwMode);
+    SetConsoleMode(hOut, dwMode | 0x0004); // ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004
+}
+
 int main() {
     // Use one Snake object as the game instance.
     system("cls");
-
+    enableANSI();
     hideCursor();
     Snake snake(40, 20);    
     srand(time(0));  

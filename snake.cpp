@@ -1,6 +1,11 @@
 #include "Snake.h"
 #include "logic.h"
 #include "fruit.h"
+#define RESET   "\033[0m"
+#define BG_RED  "\033[41m"  
+#define BLUE    "\033[34m"  
+#define PINK    "\033[35m"  
+#define GREEN   "\033[32m"
 
 Snake::Snake(int w, int h)
 {
@@ -35,10 +40,14 @@ void Snake::draw()
             pair<int, int> cell = {i, j};
             auto it = find(pos.begin(), pos.end(), cell);
             // Draw borders.
-            if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
-            {
-                cout << "#";
-            }
+            // if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
+            // {
+            //     cout << BG_RED;
+            // }
+            if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
+                // Draw border (red background)
+                cout << BG_RED << " " << RESET;
+            } 
             else if (it != pos.end())
             {
                 // Check if the current cell is part of the snake.
@@ -51,7 +60,7 @@ void Snake::draw()
                     sx = cell.first;
                     sy = cell.second;
 
-                    cout << "O"; // Head.
+                    cout << GREEN << "O" << RESET;
                     // Check for fruit collision.
                     if (cell.first == fruitY && cell.second == fruitX) // first=i second = j
                     {                                                 
@@ -75,17 +84,17 @@ void Snake::draw()
                 }
                 else
                 {
-                    cout << "o"; // Body part.
+                    cout << BLUE << "o" << RESET; 
                 }
             }
             // Draw fruits.
             else if (i == fruitY && j == fruitX) // Small fruit type.
             {
-                cout <<"A"; ;
+                std::cout << PINK << "A" << RESET;
             }
             else if (i == FruitY && j == FruitX) // Big fruit type.
             {
-                cout << "B";
+                std::cout << PINK << "B" << RESET;
             }
             else
             {
