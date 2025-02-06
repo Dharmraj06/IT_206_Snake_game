@@ -35,11 +35,13 @@ int main() {
     snake.gameOver = false;
     SetConsoleOutputCP(CP_UTF8);
     // In main.cpp
+    clock_t start = clock();
 while (!snake.gameOver) {
    
     snake.Input();  
-
     
+
+
     snake.movement();
 
    
@@ -51,11 +53,13 @@ while (!snake.gameOver) {
     
     Sleep(50);
 }
+clock_t end = clock();
 
     if (snake.getScore() > HighScore) {
             HighScore = snake.getScore();
         }
-
+        double elapsed_time = double(end - start) / CLOCKS_PER_SEC;
+    cout << "play time: " << elapsed_time << "sec" << endl;
     cout <<"High Score: "<<HighScore<<endl;
     cout<<"Do you want to play again? (Y/N): ";
     cin>>choice;
