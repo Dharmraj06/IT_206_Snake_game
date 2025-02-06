@@ -24,6 +24,7 @@ void enableANSI() {
 
 int main() {
     // Use one Snake object as the game instance.
+    char choice;
     system("cls");
     enableANSI();
     hideCursor();
@@ -50,7 +51,14 @@ while (!snake.gameOver) {
     Sleep(50);
 }
 
-
-    cout << "Game Over! Final Score: " << snake.getScore() << endl;
+    cout<<"Do you want to play again? (Y/N): ";
+    cin>>choice;
+    if (choice == 'Y' || choice == 'y') {
+        main();
+    }
+    else {
+        cout << "Game Over! Final Score: " << snake.getScore() << endl;
+    }
+    
     return 0;
 }
