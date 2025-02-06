@@ -7,6 +7,7 @@
 
 using namespace std;
 
+int HighScore = 0;  // Global variable to store the high score.
 void hideCursor() {
     HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_CURSOR_INFO cursorInfo;
@@ -51,6 +52,11 @@ while (!snake.gameOver) {
     Sleep(50);
 }
 
+    if (snake.getScore() > HighScore) {
+            HighScore = snake.getScore();
+        }
+
+    cout <<"High Score: "<<HighScore<<endl;
     cout<<"Do you want to play again? (Y/N): ";
     cin>>choice;
     if (choice == 'Y' || choice == 'y') {
@@ -58,6 +64,7 @@ while (!snake.gameOver) {
     }
     else {
         cout << "Game Over! Final Score: " << snake.getScore() << endl;
+        cout << "High Score: " << HighScore << endl;
     }
     
     return 0;
