@@ -7,10 +7,8 @@
 class Fruit {
 protected:
     int FruitX, FruitY, fruitX, fruitY;  
-    //char matrix[40][20];  
     int width = 20;  
     int height = 10; 
-    //int score = 0;  
 
 public:
     Fruit();
@@ -20,9 +18,6 @@ public:
     void getCoordinatef();
 
     void getFruit();
-
-    // Getter for the score
-    //int getScore();
 
 };
 

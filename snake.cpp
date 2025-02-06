@@ -21,17 +21,11 @@ Snake::Snake(int w, int h)
 
 void Snake::draw()
 {
-    //system("cls"); // Clear the screen
     gotoXY(0,0);
     // Update movement before drawing.
     movement();
 
-    if (pos.empty())
-    {
-        cout << "Error: pos is empty!" << endl;
-        return;
-    }
-    //cout << fruitY << " " << fruitX << endl; // i,j
+    
 
     for (int i = 0; i < height; i++)
     {
@@ -103,7 +97,6 @@ void Snake::draw()
         }
         cout << endl;
     }
-    
 }
 void Snake::Input()
 {

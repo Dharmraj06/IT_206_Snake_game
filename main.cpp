@@ -44,10 +44,9 @@ while (!snake.gameOver) {
     snake.draw();
 
     snake.checkCollision(snake.snake_body.back());
-    
-        //cout<<"reaching to "<<snake.sx<<" "<<snake.sy<<endl;
-    
+        
     cout << "Score: " << snake.getScore() << endl;
+    
     Sleep(50);
 }
 
