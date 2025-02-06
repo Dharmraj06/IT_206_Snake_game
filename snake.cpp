@@ -103,7 +103,7 @@ void Snake::draw()
         }
         cout << endl;
     }
-    cout << "Score: " << score << endl;
+    
 }
 void Snake::Input()
 {
