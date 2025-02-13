@@ -1,3 +1,4 @@
+g++ main.cpp fruit.cpp snake.cpp logic.cpp -o game
 # Snake Game
 
 ## Overview
@@ -37,13 +38,13 @@ Includes `snake_game.exe` to run the game directly.
 3.  Compile using:
 
     ```bash
-    g++ -o snake_game main.cpp snake.cpp fruit.cpp logic.cpp 
+    g++ main.cpp fruit.cpp snake.cpp logic.cpp -o game 
     ```
 
 4.  Run the game:
 
     ```bash
-    ./snake_game
+    game.exe
     ```
 
 ### Run Precompiled Executable (Windows)
