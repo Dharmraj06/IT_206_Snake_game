@@ -20,7 +20,7 @@ void Snake::draw()
 {
     gotoXY(0,0);
     
-
+    movement();
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
