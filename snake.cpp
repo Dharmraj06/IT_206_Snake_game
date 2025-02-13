@@ -19,8 +19,10 @@ Snake::Snake(int w, int h)
 void Snake::draw()
 {
     gotoXY(0,0);
-    
+
+    for(int i = 0; i < fastness;i+=5)
     movement();
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -46,6 +48,7 @@ void Snake::draw()
                         score += 10;
                         this->getFruit(); 
                         this->increase_size = true;
+                        fastness++;
                         
                     }
                     else if (cell.first == FruitY && cell.second == FruitX)
@@ -55,7 +58,8 @@ void Snake::draw()
                         score += 50;
                         this->getFruit();
                         this->increase_size = true;
-                        
+                        fastness++;
+
                     }
                 }
                 else

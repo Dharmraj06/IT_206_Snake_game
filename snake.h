@@ -16,7 +16,7 @@ class Snake : public Logic, public Fruit {
 private:
     int score;
     int width, height;
-    
+    int fastness = 0;
 
 public:
     bool reaching = false;
