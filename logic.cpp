@@ -8,7 +8,7 @@ int dy[] = {-1, 1, 0, 0};
 
 Logic::Logic()
 {
-    // cout<<"snake initialised"<<endl;
+    // cout<<"snake
     snake_body.push({20, 10});
     snake_body.push({20, 11});
     snake_body.push({20, 12});
