@@ -3,16 +3,15 @@
 #include <ctime>
 #include "fruit.h"
 #include "snake.h"
-// No need to include logic.h separately if Snake inherits from it.
 
 using namespace std;
 
-int HighScore = 0;  // Global variable to store the high score.
+int HighScore = 0;  
 void hideCursor() {
     HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_CURSOR_INFO cursorInfo;
     GetConsoleCursorInfo(consoleHandle, &cursorInfo);
-    cursorInfo.bVisible = FALSE;  // Set to false to hide the cursor
+    cursorInfo.bVisible = FALSE;  
     SetConsoleCursorInfo(consoleHandle, &cursorInfo);
 }
 
@@ -20,11 +19,11 @@ void enableANSI() {
     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
     DWORD dwMode = 0;
     GetConsoleMode(hOut, &dwMode);
-    SetConsoleMode(hOut, dwMode | 0x0004); // ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004
+    SetConsoleMode(hOut, dwMode | 0x0004); 
 }
 
 int main() {
-    // Use one Snake object as the game instance.
+    
     char choice;
     system("cls");
     enableANSI();
@@ -34,16 +33,13 @@ int main() {
 
     snake.gameOver = false;
     SetConsoleOutputCP(CP_UTF8);
-    // In main.cpp
+
     clock_t start = clock();
 while (!snake.gameOver) {
    
     snake.Input();  
-    
-
 
     snake.movement();
-
    
     snake.draw();
 

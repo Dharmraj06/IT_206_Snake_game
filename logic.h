@@ -10,7 +10,6 @@ class Logic{
 protected:
      
     vector<pair<int, int>> pos;  
-    queue<pair<int, int>>temp;
     int width = 40, height = 20; 
     bool increase_size = false; 
 
