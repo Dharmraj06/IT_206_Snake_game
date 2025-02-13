@@ -18,10 +18,7 @@ void Fruit::getCoordinatef()
 {
     fruitX = std::min(((rand() % (width / 2)) + 1)* 2, width * 2 - 2);   
     fruitY = std::min(((rand() % (height / 2)) + 1) * 2, height * 2 - 2); 
-    if (fruitX > width * 2 || fruitY > height * 2 || fruitX <= 1 || fruitY <= 1)
-    {
-        getCoordinatef();
-    }
+
 }
 
 void Fruit::getFruit()
